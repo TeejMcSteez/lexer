@@ -15,7 +15,6 @@ long int findSizeOfFile(char filename[]) {
     long int res = ftell(fp);
 
     fclose(fp);
-    //printf("%li", res);
     return res;
 }
 
@@ -25,10 +24,9 @@ int main() {
     scanf("%s", &input);
     long int buffer = findSizeOfFile(input);
 
-    char read[buffer]; //contents of file read ALSO NOT MEMORY SAFE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    char read[buffer]; //NOT MEMORY SAFE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     FILE *in_file = fopen(input, "r");
-    //FILE *out_file = fopen(input, "w"); //to write an output file
 
     if (in_file == NULL) {
         printf("Error! Could not find file!");
@@ -38,8 +36,6 @@ int main() {
     while (fgets(read, strlen(input), in_file)) {
         printf("%s", read);
     }
-
-    // printf("%i",buffer);
 
     fclose(in_file);
     return 0;
