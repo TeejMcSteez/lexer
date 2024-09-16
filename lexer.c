@@ -6,8 +6,8 @@ long int findSizeOfFile(char filename[]) {
     FILE * fp = fopen(filename, "r");
 
     if (fp == NULL) {
-        printf("ERROR NULL");
-        return -1;
+        printf("ERROR! . . . 404\n");
+        return 404;
     }
 
     fseek(fp, 0, SEEK_END);
@@ -22,9 +22,10 @@ int main() {
     char input[100];
     printf("Please enter the name of the file you would like to parse: ");
     scanf("%s", &input);
+
     long int buffer = findSizeOfFile(input);
 
-    char read[buffer]; //NOT MEMORY SAFE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    char read[buffer]; //NOT MEMORY SAFE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! I need to learn malloc
 
     FILE *in_file = fopen(input, "r");
 
